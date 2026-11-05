@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e8ecdf"><meta name="color-scheme" content="light">
+<meta name="robots" content="noindex,nofollow"><meta name="description" content="Herkes Çiçek Alır.. Ben Senin İçin Kodladım.">
+<meta property="og:title" content="Ben Senin İçin Kodladım."><meta property="og:description" content="Bu kasımpatının her yaprağında söylenmemiş bir şey saklı.">
+<title>Senin İçin Kodladım · Bloom</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cormorant-garamond.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<div id="experience" data-state="intro" data-sound="off">
+<header class="masthead">
+<a class="signature" href="#" id="home" aria-label="Başa dön"><svg class="seal" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".7"><ellipse cx="20" cy="20" rx="5.3" ry="16"/><ellipse cx="20" cy="20" rx="5.3" ry="16" transform="rotate(45 20 20)"/><ellipse cx="20" cy="20" rx="5.3" ry="16" transform="rotate(90 20 20)"/><ellipse cx="20" cy="20" rx="5.3" ry="16" transform="rotate(135 20 20)"/><circle cx="20" cy="20" r="2.5"/></g></svg><span>BLOOM</span></a>
+<span class="masthead-note">SANA AYRILMIŞ BİR AN</span>
+<button id="sound" class="sound-control" type="button" aria-label="Müziği kapat" aria-pressed="true"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="sound-label">Müzikle</span></button>
+</header>
+<main>
+<section id="garden" class="garden" aria-label="Senin için açan 3D kasımpatı">
+<div class="ambient" aria-hidden="true"></div><div class="fine-lines" aria-hidden="true"><span></span><span></span></div>
+<div class="intro-copy" id="intro-copy"><p class="eyebrow">SANA ÖZEL BİR SÜRPRİZ.</p><h1><span>Herkes Çiçek Alır..</span> <span><em>Ben Senin İçin Kodladım.</em></span></h1><p class="intro-note">Günün bütün telaşına<br>küçücük bir ara.</p></div>
+<div class="watch-copy" aria-hidden="true"><p class="eyebrow">GÜZELLİK ACELE ETMEZ.</p><p><span>Biraz zaman.</span><br><em>Biraz ışık.</em><br>Ve bütün güzelliğiyle...</p></div>
+<figure class="flower-frame" id="flower-frame">
+<img id="poster" class="bloom-poster" src="assets/bud.webp" alt="Kapalı kasımpatı tomurcuğu" width="768" height="1024" fetchpriority="high">
+<video id="bloom" class="bloom-film" muted playsinline webkit-playsinline preload="auto" poster="assets/bud.webp" aria-label="3D kasımpatının tomurcuktan çiçeğe açılışı"><source id="bloom-source" src="assets/bloom.mp4" type="video/mp4"></video>
+<button id="flower-touch" class="flower-touch" type="button" aria-label="Dokun, kasımpatı senin için açılsın"></button>
+<figcaption class="botanical-caption" aria-hidden="true"><span>Chrysanthemum</span><span>morifolium</span></figcaption>
+</figure>
+<div class="invitation"><button id="begin" class="begin" type="button"><span class="begin-orbit" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 12h12M13 7l5 5-5 5"/></svg></span><span class="begin-words"><span id="begin-title">Dokun, senin için açılsın.</span><span class="begin-hint" id="begin-hint">KÜÇÜK BİR SÜRPRİZ SENİ BEKLİYOR</span></span></button></div>
+<div class="play-controls" id="play-controls" hidden><button id="pause" class="text-action" type="button" aria-label="Çiçeğin açılışını duraklat"><svg viewBox="0 0 20 20" aria-hidden="true"><path id="pause-path" d="M7 5v10M13 5v10"/></svg><span id="pause-label">Biraz kal</span></button><label class="timeline-label" for="timeline">Çiçeğin açılışı</label><input id="timeline" class="timeline" type="range" min="0" max="1000" step="1" value="0" aria-label="Çiçeğin açılışını elle kontrol et"><span class="progress-word" id="progress-word" aria-hidden="true">AÇILIYOR</span></div>
+<p class="media-notice" id="media-notice" role="status" hidden></p>
+<button id="read-now" class="read-now text-action" type="button">Mesajı oku <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+<div class="garden-footer" aria-hidden="true"><span>BİR KASIMPATI. BİR GÜLÜMSEME.</span><span class="chapter"><i></i><i></i><i></i><span id="chapter-label">01 — BEKLEYİŞ</span></span></div>
+</section>
+<section id="letter" class="letter" aria-labelledby="letter-title" hidden>
+<div class="letter-art" aria-hidden="true"><img src="assets/flower.webp" width="768" height="1024" alt=""><span class="art-caption">Serin günlerin çiçeği.</span></div>
+<article class="letter-copy"><p class="eyebrow reveal-line">BU AN, SADECE SANA.</p><h2 id="letter-title" tabindex="-1"><span class="title-line"><span>İyi ki</span></span><span class="title-line"><em>varsın.</em></span></h2><div class="letter-rule" aria-hidden="true"></div>
+<div class="letter-body" id="personal-note"><p class="reveal-line">Bazı çiçekler güneşi görünce açar, bazılarıysa birinin varlığını hissedince…</p><p class="reveal-line">Bu kasımpatının hangi sebeple açtığını söylemeyeceğim.</p><p class="reveal-line">Ama her satırında biraz emek, her yaprağında söylenmemiş bir şey saklı.</p><p class="reveal-line last-wish">Belki bir gün neden özellikle senin için açtığını anlarsın. 🌼</p></div>
+<div class="letter-actions reveal-line"><button id="again" class="text-action" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 8a6 6 0 1 1 0 5M4 3v5h5"/></svg>Bir kez daha açsın</button><button id="share" class="text-action" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3M6 7l4-4 4 4M5 10H3v7h14v-7h-2"/></svg>Bağlantıyı paylaş</button></div><p id="share-status" class="share-status" role="status"></p></article>
+<footer class="letter-footer"><span>BAZI GÜZELLİKLER, VARLIĞINLA ÇOĞALIR.</span><button id="credits-open" class="credits-open" type="button">Bu deneyim hakkında</button></footer>
+</section>
+</main>
+<audio id="music" src="assets/beyaz-ve-sen.mp3" preload="none"></audio><p class="sr-only" id="announcement" aria-live="polite"></p>
+<dialog id="credits" class="credits-dialog" aria-labelledby="credits-title"><button id="credits-close" class="dialog-close" type="button" aria-label="Pencereyi kapat">Kapat <span aria-hidden="true">×</span></button><p class="eyebrow">BLOOM / KÜÇÜK BİR SÜRPRİZ</p><h2 id="credits-title">Bir çiçekten<br><em>bir gülümsemeye.</em></h2><p>Bu kasımpatı, tek tek kıvrılan taç yapraklarıyla oluşturulmuş özgün bir 3D animasyondur. Gerçek çekim değildir.</p><p>Tipografi: Christian Thalmann ve Cormorant Project Authors · SIL Open Font License.</p><p>Müzik: Rober Hatemo — Beyaz ve Sen.<br>Deneyimi hazırlayan kişinin sağladığı ses dosyası.</p><p class="credits-small">Kişisel bir sürpriz olarak hazırlandı. Üçüncü taraf takip kodu, çerez veya veri toplama içermez.</p></dialog>
+</div>
+<noscript><div class="noscript"><h1>Herkes Çiçek Alır.. Ben Senin İçin Kodladım.</h1><p>Bazı çiçekler güneşi görünce açar, bazılarıysa birinin varlığını hissedince… Bu kasımpatının hangi sebeple açtığını söylemeyeceğim. Ama her satırında biraz emek, her yaprağında söylenmemiş bir şey saklı. Belki bir gün neden özellikle senin için açtığını anlarsın. 🌼</p><p>3D çiçeğin açılışını izlemek için JavaScript’i etkinleştirebilirsin.</p></div></noscript>
+</body></html>
