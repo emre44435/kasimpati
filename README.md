@@ -1,48 +1,57 @@
-# BLOOM — Senin İçin Kodladım
+# Senin İçin Kodladım — 3D Kasımpatı
 
-Açık adaçayı ve fildişi tonlarında, dokunmayla açılan 3D kasımpatı deneyimi.
-Başlık ve not, istenen son metinlerle güncellendi. Sağlanan MP3 dosyası pakette bulunur.
+Aynı 3D kasımpatı korundu; müzik son gönderilen MP3 ile değiştirildi. Mobil öncelikli sade sürüm.
+
+## Deneyim
+
+İlk ekranda yalnızca “Herkes Çiçek Alır.. Ben Senin İçin Kodladım.” başlığı, kasımpatı
+tomurcuğu ve “Dokun, Galiba Başardım 😂” düğmesi bulunur.
+
+Düğmeye dokunulduğunda müzik ve 3D açılış başlar. Başlık ve düğme kaybolur; açılış
+sırasında ekranda yalnızca çiçek kalır. Görünür oynatıcı, zaman çizgisi, ses düğmesi,
+ileri / geri sarma veya mesajı atlama kontrolü yoktur.
+
+Açılış bittiğinde not kendiliğinden görünür. Yeni başlık “Kasımpatılar en serin günlerde
+bile açar.” şeklindedir; kişisel not bunun altında yer alır. Yalnızca “Bir kez daha açsın”
+düğmesi korunur. Bu düğme çiçeği ve müziği baştan başlatır. Paylaş düğmesi kaldırılmıştır.
+
+Sayfa açılınca ses otomatik başlamaz; başlatma düğmesine dokunmak gerekir. Ses dosyası
+sitede görünmez. Tarayıcının / cihazın ses politikaları geçerlidir. Sekme arka plana
+alındığında medya durur. Hareket azaltma tercihi açıksa doğrudan açık çiçek ve not gösterilir.
 
 ## GitHub Pages'e yükleme
 
 1. ZIP'i bilgisayarında çıkar.
 2. GitHub'da bir depo oluştur. **ZIP'in kendisini değil, içindeki dosya ve klasörleri** yükle.
-3. `index.html` deponun ana dizininde olmalı; `assets` klasörüyle aynı seviyede kalmalı.
+3. `index.html`, deponun ana dizininde ve `assets` klasörüyle aynı seviyede olmalı.
 4. **Settings → Pages → Build and deployment → Deploy from a branch** seç.
 5. Branch: **main**, klasör: **/(root)** seçip kaydet.
-6. GitHub'ın oluşturduğu Pages bağlantısını aç. Yayının hazırlanması birkaç dakika sürebilir.
+6. GitHub'ın verdiği Pages bağlantısını aç. Yayının hazırlanması birkaç dakika sürebilir.
 
 Ücretli hizmet, API anahtarı, abonelik, derleme veya sunucu uygulaması gerekmez.
-Tüm adresler göreli olduğundan hem `kullanici.github.io` hem `kullanici.github.io/depo/` yapısında çalışır.
+Dosya adresleri göreli olduğundan depo alt dizini üzerinden yayınlanabilir.
+Eski sürümü güncelliyorsan aynı adlı dosyaların üzerine yaz ve sayfayı yenile.
 
-## Deneyim
+## İçerik
 
-- Çiçeğe ya da davet düğmesine dokun: açılış ve izin verildiyse müzik başlar.
-- Açılırken çiçeğe yeniden dokun: duraklat / devam et.
-- Açılırken çiçeği basılı tut: ağır çekim. Bırak: normal hız.
-- İnce zaman çizgisini sürükle: açılışın istediğin anına git.
-- Ses düğmesi: müziği aç / kapat. Müzik sayfa yüklenince otomatik başlamaz.
-- Açılış bitince kişisel not görünür. “Bir kez daha açsın” baştan oynatır.
-- “Mesajı oku” ile beklemeden nota geçilebilir.
-- Sisteminde hareketi azaltma açıksa açılış atlanır; açık çiçek ve not gösterilir.
-- Sekme arka plana alınırsa medya durur. Geri dönünce önceden çalıyorsa sürer.
+- `index.html`, `style.css`, `app.js`: tüm arayüz ve etkileşim kodları.
+- `assets/bloom.mp4`: korunan 768 × 1024 H.264 3D açılış; 30 fps.
+- `assets/bloom-lite.mp4`: veri tasarrufu / düşük performans için 384 × 512 alternatif.
+- `assets/bud.webp`, `assets/flower.webp`: aynı modelin başlangıç ve final kareleri.
+- `assets/buklum-buklum.mp3`: kullanıcı tarafından sağlanan dosyanın birebir kopyası.
+- `assets/fonts`: yerel Cormorant Garamond fontları.
+- `source/chrysanthemum.blend`: özgün düzenlenebilir 3D sahne.
+- `source/create_flower.py`, `source/process_media.py`: yeniden üretim kodları.
+- `licenses`: lisans ve ses kaynağı bilgileri.
+- `TEST-RESULTS.md`, `verification`: test kapsamı ve ekran görüntüleri.
 
-## Dosyalar
-
-- `index.html`, `style.css`, `app.js`: tüm arayüz kaynakları.
-- `assets/bloom.mp4`: 768 × 1024, H.264, 30 fps 3D açılış.
-- `assets/bloom-lite.mp4`: 384 × 512 H.264 alternatifi. Veri tasarrufu veya ölçülen kare düşüşünde seçilir.
-- `assets/bud.webp`, `assets/flower.webp`: aynı modelin şeffaf başlangıç / final kareleri.
-- `assets/beyaz-ve-sen.mp3`: sağladığın ses dosyasının birebir kopyası.
-- `assets/fonts`: yerel Cormorant Garamond fontları. Harici font isteği yapılmaz.
-- `source/chrysanthemum.blend`: düzenlenebilir özgün 3D sahne ve animasyon.
-- `source/create_flower.py`, `source/process_media.py`: sahnenin ve medyanın yeniden üretim kodu.
-- `licenses`: lisans ve kaynak bilgileri.
-- `TEST-RESULTS.md`: doğrulanan testler ve test kapsamının sınırları.
+Çiçek modeli, açılış videosu ve başlangıç / final görselleri değiştirilmedi.
+Müzik, kullanıcının son paylaştığı Büklüm Büklüm MP3 dosyasıyla değiştirildi; eski
+ses dosyası paketten kaldırıldı. Açılışın hızı önceki sürümdeki gibi `.88`'dir.
 
 ## 3D sahneyi yeniden üretme
 
-Siteyi yayınlamak için bu adımlar gerekmez. Kaynak sahneyi değiştirmek için:
+Yayınlamak için bu adımlar gerekmez. Kaynak sahneyi düzenlemek için:
 
 ```bash
 blender -b -t 8 --python source/create_flower.py
@@ -50,16 +59,10 @@ python -m pip install oidn==0.2.1 Pillow numpy
 python source/process_media.py
 ```
 
-Blender 4.3.2 ve libx264 destekli FFmpeg kullanıldı. Sahne 97 RGBA kare oluşturur.
-Her taç yaprağının membranı ayrı şekil anahtarlarıyla kıvrılıp açılır. Bu, büyütülen sabit
-bir resim veya CSS ile taklit edilmiş açılış değildir. Çalışma zamanında telefonun
-GPU'suna yüz binlerce poligon yüklememek için özgün 3D sahnenin işlenmiş H.264
-animasyonu kullanılır. Gerçek çiçek çekimi değildir.
+Blender 4.3.2 ve libx264 destekli FFmpeg kullanıldı. Sahne 97 RGBA kare üretir.
+Taç yaprakları ayrı şekil anahtarlarıyla kıvrılıp açılır. Telefondaki işlem yükünü azaltmak
+üzere özgün 3D sahnenin işlenmiş videosu kullanılır; gerçek çiçek çekimi değildir.
+İstemci kodunda harici kitaplık, takip kodu, çerez veya veri toplama yoktur.
 
-İstemci kodu üçüncü taraf kitaplık içermez; izleme, çerez, form veya veri toplama yoktur.
-
-## Metni veya müziği değiştirme
-
-Başlık `index.html` içindeki `h1`, not `#personal-note` alanındadır. JavaScript kapalı
-içerik için `noscript` içindeki metni de aynı tut. MP3'ü aynı dosya adıyla değiştirebilirsin.
-Dosya adlarının büyük / küçük harflerini koru. Ses hakları için `licenses/ASSETS.md` dosyasına bak.
+Başlığı `index.html` içindeki `h1` alanından, final başlığını `h2`, notu `#personal-note`
+alanından değiştirebilirsin. Ses hakları için `licenses/ASSETS.md` dosyasına bak.

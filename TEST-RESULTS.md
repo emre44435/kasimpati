@@ -1,53 +1,74 @@
-# Doğrulama — 5 Kasım 2026
+# Sade sürüm — doğrulama, 5 Kasım 2026
 
-## Gerçek tarayıcı kontrolleri
+## Son MP3 güncellemesi
 
-Chrome'da çalışan site ve aşağıdaki görünüm alanları incelendi. Telefon ölçüleri,
-tarayıcı içindeki aynı kaynaktan yüklenen ayrı çerçevelerle kontrol edildi.
+- Önceki MP3 paketten kaldırıldı; yeni dosya `assets/buklum-buklum.mp3` yoluna birebir kopyalandı.
+- HTML'nin gizli ses öğesi yeni dosyaya bağlıdır; ses kullanıcı dokunuşuyla başlar.
+- Yeni MP3: 34.037551 sn, 1,364,884 bayt, 44.1 kHz, stereo.
+- SHA-256: `a84422ca7243b928b0af496c414f40151a5c13b029f85cbf0df94ef766645de1`.
+- Dosyanın tamamı FFmpeg ile çözülerek kontrol edildi; işlem başarılı.
+- ZIP içindeki ses dosyası yüklenen dosyayla SHA-256 bakımından aynı.
+- 3D videolar, model, görseller, CSS ve JavaScript önceki paketle aynı.
+- Bu ses değişikliğinden sonra fiziksel cihaz veya yeni tarayıcı testi yapılmadı.
 
-| Görünüm | Başlangıç | Final notu |
-| --- | --- | --- |
-| 320 × 568 | Yatay taşma yok; belge 568 px yüksekliğinde | Yatay taşma yok; tüm not ve düğmeler dikey kaydırmayla erişilebilir |
-| 390 × 844 | Yatay taşma yok; belge 844 px yüksekliğinde | Yatay taşma yok; belge 1067 px; not ve düğmeler erişilebilir |
-| 430 × 932 | Yatay taşma yok; belge 932 px yüksekliğinde | Yatay taşma yok; belge 1044 px |
-| 1363 × 936 | Yatay taşma yok; iki sütunlu kompozisyon | Yatay taşma yok; not ve iki eylem düğmesi görünür |
+## Gerçek tarayıcıda animasyon — önceki arayüz kontrolü
 
-Dikey kaydırma çubuğu olan masaüstü çerçevelerinde içerik genişliği 15 px azalır.
-Genişlik karşılaştırması `scrollWidth` ile `clientWidth` arasında yapıldı.
+Aşağıdaki oynatma ölçümleri, arayüz sadeleştirilirken önceki ses dosyasıyla yapılan
+testlere aittir. Animasyon ve oynatma kodu bu ses değişikliğinde değiştirilmedi.
 
-Kontrol edilen etkileşimler:
+Chrome'da başlatma düğmesine basıldı. Video süresi, oynatma durumu, görünür arayüz ve
+finale geçiş gerçek sayfadan okunarak kontrol edildi; başlangıç, ara ve final görüntüleri alındı.
 
-- Kullanıcı dokunuşuyla 3D açılış ve MP3 başlatıldı; ses etiketi “Ses açık” oldu.
-- 6.4512 saniyedeki gerçek ara karede duraklatma doğrulandı (`paused: true`).
-- Zaman çizgisinde Home / PageUp ile 1.62 saniyeye gidildi; duraklama korundu.
-- Devam et düğmesinden sonra video doğal sonuna ulaştı (`ended: true`, süre 16.2 sn).
-- Video biter bitmez final notuna geçildi; başlık odağı güncellendi.
-- Ses kapatıldı ve yeniden açıldı; MP3 oynatma durumu doğrulandı.
-- Tekrar oynatma çiçeği başa alıp yeniden başlattı (kontrol anında 0.2775 sn).
-- Başa dön kontrolü ilk sahneyi geri getirdi.
-- “Mesajı oku” başlangıçtan doğrudan nota geçti.
-- Bilgi penceresi açıldı ve kapatıldı.
-- İstenen başlık ve yeni not, Türkçe karakterleriyle doğrulandı.
+| Kontrol | Gözlenen sonuç |
+| --- | --- |
+| İlk dokunuş | Video 0.1858 sn, `paused: false`; MP3 0.158308 sn, `paused: false` |
+| Açılışın ara karesi | Video 5.1605 sn, `paused: false`, `ended: false`; taç yaprakları açılıyor |
+| Açılış sırasındaki arayüz | Başlık ve davet düğmesi gizli; görünür düğme sayısı 0; video / ses kontrolü yok |
+| Doğal son | Video 16.2 sn, `ended: true`; sayfa kendiliğinden `letter` durumuna geçti |
+| Tekrar açma | “Bir kez daha açsın” çiçeği 0 saniyeden başlattı; MP3 de başa döndü ve oynadı |
+| İkinci açılış | Ara kare ve tekrar doğal son doğrulandı; final notu yeniden açıldı |
+| Masaüstü açılışı | Video 0.2759 → 6.3682 → 16.2 sn ilerledi; ara karede görünür düğme yok |
+| Masaüstü kompozisyonu | Açılışta çiçek merkez X: 681.5 px; ekran genişliği 1363 px |
+| Final arayüzü | Yalnızca not ve “Bir kez daha açsın” düğmesi; paylaş / müzik / altbilgi yok |
 
-Görsel kanıtlar `verification` klasöründedir. Açılış, yalnızca bir sabit görselin
-ölçeklenmesi değildir; ara kare ve açık çiçek görüntüleri aynı 3D sahneden gelir.
+Ana dosyanın medya süresi 16.2 saniyedir; korunan `.88` oynatma hızıyla açılış yaklaşık
+18.4 saniye sürer. Animasyon gerçek tarayıcıda sonuna kadar oynatılarak test edildi.
 
-## Dosya ve medya doğrulaması
+## Mobil ve masaüstü yerleşimi
 
-- JavaScript: `node --check` başarılı.
-- HTML: 35 benzersiz öğe kimliği; JavaScript hedeflerinin tümü mevcut.
-- Başvurulan yerel dosyalar mevcut; ZIP bütünlüğü kontrol edildi.
-- Ana video: H.264 High / YUV420p, 768 × 1024, 30 fps, 16.2 saniye, 1,926,315 bayt.
-- Alternatif video: H.264 Constrained Baseline / YUV420p, 384 × 512, 30 fps,
-  16.2 saniye, 477,796 bayt.
-- MP3: 79.934694 saniye; 1,279,546 bayt; sağlanan dosyayla SHA-256 birebir aynı.
-- Tüm fontlar ve medya yereldir; çalışırken ücretli API veya CDN gerekmez.
+Telefon ölçüleri Chrome içinde aynı kaynağı yükleyen ayrı çerçevelerle denetlendi.
+Her telefon ölçüsünde video doğal sonuna ulaştı ve not otomatik açıldı.
 
-## Kapsamın sınırları
+| Görünüm | Başlangıç yüksekliği | Final belge yüksekliği | Yatay taşma |
+| --- | ---: | ---: | --- |
+| 320 × 568 | 568 px | 974 px | Yok |
+| 390 × 844 | 844 px | 1023 px | Yok |
+| 430 × 932 | 932 px | 1009 px | Yok |
+| 1363 × 936 | 936 px | 936 px | Yok |
 
-Fiziksel iPhone / Android cihazında veya Safari motorunda bu oturumda test yapılmadı.
-Tarayıcı ölçülerinde yapılan kontrol fiziksel cihaz testinin yerine geçmez.
-Sistem hareket azaltma tercihi, arka plan duraklatması ve otomatik kalite seçimi kodda
-uygulanıp incelendi; bu oturumdaki tarayıcıda bu koşulların tümü zorlanarak ölçülmedi.
-Yerel paylaşım menüsüyle gerçek bir kişiye paylaşım yapılmadı. GitHub'a yükleme ve
-canlı yayın yapılmadı; yayımlanabilir statik dosyalar teslim edildi.
+`scrollWidth` ile `clientWidth` eşitliği kontrol edildi. Mobil final notu gerektiğinde
+dikey kaydırılır. Çerçevelerdeki masaüstü kaydırma çubuğu içerik genişliğini 15 px azaltır.
+
+## Kaynak ve dosya kontrolleri
+
+- HTML'de 14 benzersiz öğe kimliği; tüm JavaScript hedefleri mevcut.
+- `node --check app.js` başarılı.
+- Tüm yerel dosya başvuruları mevcut; ZIP bütünlüğü doğrulandı.
+- Logo, Bloom yazısı, ses düğmesi, zaman çizgisi, duraklatma, mesajı atlama, paylaşım,
+  bölüm sayacı ve altbilgiler HTML'den kaldırıldı.
+- Yeni düğme metni ve final başlığı doğru; kişisel not korundu.
+- 3D sahne, iki açılış videosu ve başlangıç / final görselleri için SHA-256 karşılaştırması yapıldı.
+  Beş görsel dosyanın tamamı önceki teslimle birebir aynı.
+- H.264 768 × 1024 ana video: 1,926,315 bayt; 384 × 512 alternatif: 477,796 bayt.
+- Güncel MP3 dosyasının doğrulaması yukarıdaki “Son MP3 güncellemesi” bölümündedir.
+
+Ekran görüntüleri `verification` klasöründedir. Sitede harici çalışma zamanı bağımlılığı
+veya ücretli hizmet yoktur. Lisans / ses kaynağı bilgileri `licenses` klasöründe tutulur;
+sayfada görünür müzik alanı yoktur.
+
+## Test kapsamı
+
+Bu oturumda fiziksel iPhone / Android cihazı veya Safari motoru kullanılmadı. Mobil ölçü
+kontrolleri fiziksel cihaz testinin yerine geçmez. Hareket azaltma, arka plan duraklatması
+ve otomatik kalite seçimi kodda korunmuştur; bu koşulların tamamı zorlanarak ölçülmedi.
+GitHub'a yükleme veya canlı yayın yapılmadı; yayınlanabilir statik dosyalar teslim edildi.

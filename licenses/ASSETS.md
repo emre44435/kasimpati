@@ -18,9 +18,12 @@ Proje sahibi bu özgün dosyaları kullanabilir, değiştirebilir ve yeniden da�
 
 ## Kullanıcının sağladığı ses
 
-`assets/beyaz-ve-sen.mp3`: Rober Hatemo — Beyaz ve Sen, kullanıcı tarafından
-sağlanan AudioTrimmer kesiti. Dosya değiştirilmeden dahil edildi.
-SHA-256: `f14f7bc089354d66467188cb46dc9e333438db3b75bb8cb1f4919e413a046b0c`.
+`assets/buklum-buklum.mp3`: kullanıcının
+`tulay-ozer-buklum-buklum-lyricssozleri_3RHdQyoQ.mp3` adıyla sağladığı dosya.
+Önceki ses dosyası kaldırılmıştır. Yeni dosya dönüştürülmeden, kesilmeden ve
+ses seviyesi değiştirilmeden pakete birebir kopyalanmıştır. Sayfanın oynatma
+ses seviyesi ayarı önceki sürümdeki gibi korunur.
+SHA-256: `a84422ca7243b928b0af496c414f40151a5c13b029f85cbf0df94ef766645de1`.
 
 Bu ticari kayda özgür lisans atfedilmez. Telif hakları ilgili hak sahiplerinde kalır.
 Kullanıcı tarafından sağlanması, halka açık yeniden dağıtım lisansını doğrulamaz.
